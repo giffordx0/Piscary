@@ -1,0 +1,47 @@
+title: "@lang:menu.augment.title"
+rows: 3
+components:
+  # LUCK
+  - type: augment_button
+    augment: "LUCK"
+    slot: 12
+    item:
+      material: ENCHANTED_BOOK
+      name: "<aqua>Luck</aqua> <gray>Lv.</gray> <yellow><level></yellow>/<yellow><max></yellow>"
+      lore:
+        - "<gray>Extra catch rolls per level:</gray> <yellow>@cfg:augments.luck.extra-rolls-per-level</yellow>"
+        - "<gray>Next upgrade cost:</gray> <yellow><next_cost></yellow> <gray>entropy</gray>"
+        - "<gray>Hold the rod to upgrade.</gray>"
+    actions:
+      - type: upgradeAugment
+        augment: "LUCK"
+
+  # DOUBLE HOOK
+  - type: augment_button
+    augment: "DOUBLE_HOOK"
+    slot: 13
+    item:
+      material: FISHING_ROD
+      name: "<aqua>Double Hook</aqua> <gray>Lv.</gray> <yellow><level></yellow>/<yellow><max></yellow>"
+      lore:
+        - "<gray>Extra drop chance/level:</gray> <yellow>@cfg:augments.double_hook.extra-drop-chance-per-level</yellow>"
+        - "<gray>Next upgrade cost:</gray> <yellow><next_cost></yellow> <gray>entropy</gray>"
+        - "<gray>Hold the rod to upgrade.</gray>"
+    actions:
+      - type: upgradeAugment
+        augment: "DOUBLE_HOOK"
+
+  # ENTROPY
+  - type: augment_button
+    augment: "ENTROPY"
+    slot: 14
+    item:
+      material: AMETHYST_SHARD
+      name: "<aqua>Entropy</aqua> <gray>Lv.</gray> <yellow><level></yellow>/<yellow><max></yellow>"
+      lore:
+        - "<gray>Gutting bonus/level:</gray> <yellow>@cfg:augments.entropy.gut-bonus-per-level</yellow>"
+        - "<gray>Next upgrade cost:</gray> <yellow><next_cost></yellow> <gray>entropy</gray>"
+        - "<gray>Hold the rod to upgrade.</gray>"
+    actions:
+      - type: upgradeAugment
+        augment: "ENTROPY"

@@ -1,0 +1,53 @@
+# Calendar-based seasonal events.
+# Months are 1-12. Day bounds are inclusive.
+# Buffs stack with bait, augments, and totems.
+
+events:
+  - id: wintertide
+    name: "<aqua>Wintertide</aqua> <gray>Festival</gray>"
+    months: [12, 1]
+    dayStart: 1
+    dayEnd: 31
+    rarityMultipliers:
+      RARE: 1.15
+      EPIC: 1.25
+    xpMultiplier: 1.15
+    sellMultiplier: 1.00
+    entropyBonus: 0.10
+
+  - id: spring_bloom
+    name: "<green>Spring Bloom</green>"
+    months: [3, 4]
+    dayStart: 1
+    dayEnd: 30
+    rarityMultipliers:
+      COMMON: 1.10
+      UNCOMMON: 1.20
+    xpMultiplier: 1.10
+    sellMultiplier: 1.05
+    entropyBonus: 0.00
+
+  - id: summer_splash
+    name: "<gold>Summer Splash</gold>"
+    months: [6, 7, 8]
+    dayStart: 1
+    dayEnd: 31
+    rarityMultipliers:
+      RARE: 1.10
+      EPIC: 1.10
+      LEGENDARY: 1.10
+    xpMultiplier: 1.05
+    sellMultiplier: 1.10
+    entropyBonus: 0.00
+
+  - id: spooky_seas
+    name: "<dark_purple>Spooky Seas</dark_purple>"
+    months: [10]
+    dayStart: 1
+    dayEnd: 31
+    rarityMultipliers:
+      EPIC: 1.20
+      LEGENDARY: 1.20
+    xpMultiplier: 1.00
+    sellMultiplier: 1.05
+    entropyBonus: 0.15

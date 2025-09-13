@@ -1,0 +1,26 @@
+title: "@lang:menu.scales.title"
+rows: 3
+components:
+  - type: button
+    slot: 12
+    item:
+      material: GOLD_NUGGET
+      name: "<yellow>Gamble Random Fish</yellow>"
+      lore:
+        - "<gray>Consumes 1 random Piscary fish.</gray>"
+        - "<gray>Win chance & profit depend on rarity.</gray>"
+    actions:
+      - type: gambleOne
+        mode: "RANDOM"
+
+  - type: button
+    slot: 14
+    item:
+      material: GOLD_INGOT
+      name: "<gold>Gamble Highest-Value Fish</gold>"
+      lore:
+        - "<gray>Consumes your most valuable Piscary fish.</gray>"
+        - "<gray>Win chance & profit depend on rarity.</gray>"
+    actions:
+      - type: gambleOne
+        mode: "HIGHEST"

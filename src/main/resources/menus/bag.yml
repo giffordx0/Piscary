@@ -1,0 +1,32 @@
+title: "@lang:menu.bag.title"
+rows: 3
+components:
+  - type: bag_status
+    slot: 13
+    material: BUNDLE
+    name: "<aqua>Fish Bag</aqua>"
+    lore:
+      - "<gray>Species:</gray> <yellow><species></yellow>"
+      - "<gray>Total fish stored:</gray> <yellow><total></yellow>"
+
+  - type: button
+    slot: 11
+    item:
+      material: CHEST
+      name: "<green>Deposit All</green>"
+      lore:
+        - "<gray>Moves all Piscary fish from your inventory</gray>"
+        - "<gray>into your Fish Bag.</gray>"
+    actions:
+      - type: depositBag
+
+  - type: button
+    slot: 15
+    item:
+      material: BARREL
+      name: "<yellow>Withdraw All</yellow>"
+      lore:
+        - "<gray>Withdraws as many fish as possible</gray>"
+        - "<gray>from your Fish Bag into your inventory.</gray>"
+    actions:
+      - type: withdrawBag

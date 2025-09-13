@@ -1,0 +1,25 @@
+title: "@lang:menu.shop.title"
+rows: 3
+components:
+  - type: button
+    slot: 12
+    item:
+      material: GOLD_INGOT
+      name: "<yellow>@lang:menu.shop.sell_all</yellow>"
+      lore:
+        - "<gray>Sells all Piscary fish in your inventory.</gray>"
+        - "<gray>Value is based on each fish's base value</gray>"
+        - "<gray>and global sell multiplier.</gray>"
+    actions:
+      - type: sellAll
+
+  - type: button
+    slot: 14
+    item:
+      material: GLOW_INK_SAC
+      name: "<aqua>Open Bait Shop</aqua>"
+      lore:
+        - "<gray>Buy & apply baits to boost rare catches.</gray>"
+    actions:
+      - type: openMenu
+        menu: "bait"

@@ -1,0 +1,42 @@
+title: "@lang:menu.totems.title"
+rows: 3
+components:
+  - type: button
+    slot: 11
+    item:
+      material: BEACON
+      name: "<aqua>Tidecaller Totem</aqua>"
+      lore:
+        - "<gray>+EPIC/LEGENDARY catch weights</gray>"
+        - "<gray>XP x1.1, Gut +10%</gray>"
+        - "<gray>Radius 16</gray>"
+        - "<yellow>$2500</yellow> <gray>+ 150 entropy</gray>"
+    actions:
+      - type: buyTotem
+        totem: "tidecaller"
+
+  - type: button
+    slot: 13
+    item:
+      material: LODESTONE
+      name: "<aqua>Merchant's Beacon</aqua>"
+      lore:
+        - "<gray>Sell x1.15</gray>"
+        - "<gray>Radius 12</gray>"
+        - "<yellow>$3000</yellow>"
+    actions:
+      - type: buyTotem
+        totem: "merchant"
+
+  - type: button
+    slot: 15
+    item:
+      material: AMETHYST_BLOCK
+      name: "<aqua>Entropy Crystal</aqua>"
+      lore:
+        - "<gray>Gutting +20%</gray>"
+        - "<gray>Radius 10</gray>"
+        - "<yellow>200 entropy</yellow>"
+    actions:
+      - type: buyTotem
+        totem: "crystal"

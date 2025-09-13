@@ -1,0 +1,6 @@
+prefix: "<gradient:#00e5ff:#0077ff><bold>Piscary</bold></gradient> <gray>»</gray> "
+caught: "<green>You caught <aqua><fish></aqua> <gray>(<rarity>)</gray> worth <yellow><value></yellow></green>"
+no-perm: "<red>You don't have permission.</red>"
+reloaded: "<green>Piscary reloaded.</green>"
+players-only: "<red>Players only.</red>"
+earned: "<green>You earned <yellow><amount></yellow></green>"

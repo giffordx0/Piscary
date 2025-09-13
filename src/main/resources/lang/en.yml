@@ -1,0 +1,25 @@
+menu:
+  shop:
+    title: "<gradient:#00e5ff:#0077ff>Piscary Shop</gradient>"
+    sell_all: "Sell All"
+    info: "Info"
+  main:
+    title: "<aqua>Piscary</aqua> <gray>Menu</gray>"
+  bag:
+    title: "<aqua>Fish Bag</aqua>"
+  gut:
+    title: "<aqua>Gutting</aqua>"
+  scales:
+    title: "<aqua>Scales</aqua>"
+  bait:
+    title: "<aqua>Bait Shop</aqua>"
+  codex:
+    title: "<aqua>Fish Codex</aqua>"
+  deliveries:
+    title: "<aqua>Deliveries</aqua>"
+  augment:
+    title: "<aqua>Augment Workbench</aqua>"
+  augments:
+    title: "<aqua>Augments</aqua>"
+  totems:
+    title: "<aqua>Totems</aqua>"

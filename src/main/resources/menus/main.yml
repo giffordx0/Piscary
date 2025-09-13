@@ -1,0 +1,15 @@
+title: "@lang:menu.main.title"
+rows: 3
+components:
+  - type: button
+    slot: 11
+    item: { material: COD, name: "Shop", lore: ["<gray>Open fish shop"] }
+    actions: [{ type: openMenu, menu: "shop" }]
+  - type: button
+    slot: 13
+    item: { material: BARREL, name: "Bag", lore: ["<gray>View your fish"] }
+    actions: [{ type: openMenu, menu: "bag" }]
+  - type: button
+    slot: 15
+    item: { material: IRON_SWORD, name: "Gutting", lore: ["<gray>Convert to entropy"] }
+    actions: [{ type: openMenu, menu: "gut" }]

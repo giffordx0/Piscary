@@ -1,0 +1,48 @@
+config-version: 1
+currency-symbol: "$"
+sell-multiplier: 1.0
+
+leveling:
+  xp-per-fish: 10
+  xp-rarity-multipliers:
+    COMMON: 1.0
+    UNCOMMON: 1.2
+    RARE: 1.5
+    EPIC: 2.0
+    LEGENDARY: 3.0
+
+entropy:
+  per-fish-base: 5
+  rarity-multipliers:
+    COMMON: 1.0
+    UNCOMMON: 1.2
+    RARE: 1.5
+    EPIC: 2.0
+    LEGENDARY: 3.0
+
+scales:
+  base-win-chance: 0.45
+  base-profit-mult: 1.80
+  rarity:
+    COMMON:    { chance: 0.50, profit: 1.60 }
+    UNCOMMON:  { chance: 0.46, profit: 1.75 }
+    RARE:      { chance: 0.40, profit: 2.10 }
+    EPIC:      { chance: 0.33, profit: 2.80 }
+    LEGENDARY: { chance: 0.25, profit: 3.80 }
+
+augments:
+  luck:
+    max-level: 5
+    base-cost: 50
+    cost-mult: 1.6
+    extra-rolls-per-level: 1
+  double_hook:
+    max-level: 3
+    base-cost: 120
+    cost-mult: 1.8
+    extra-drop-chance-per-level: 0.12
+  entropy:
+    max-level: 5
+    base-cost: 80
+    cost-mult: 1.7
+    gut-bonus-per-level: 0.10

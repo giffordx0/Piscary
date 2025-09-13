@@ -1,0 +1,21 @@
+title: "@lang:menu.codex.title"
+rows: 6
+components:
+  - type: list
+    source: fish
+    # 5x5 grid inside a 6-row menu (avoids frame)
+    slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40]
+    sort: "rarity,name"
+    namePattern: "<white><fishName></white>"
+    lorePattern:
+      - "<gray>Rarity:</gray> <yellow><rarity></yellow>"
+      - "<gray>Sell value:</gray> <green><value></green>"
+      - "<gray>Model:</gray> <white><model></white>"
+    prev:
+      slot: 48
+      material: ARROW
+      name: "<red>◀ Prev</red>"
+    next:
+      slot: 50
+      material: ARROW
+      name: "<green>Next ▶</green>"

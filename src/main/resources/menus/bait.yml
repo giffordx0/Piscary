@@ -1,0 +1,26 @@
+title: "@lang:menu.bait.title"
+rows: 3
+components:
+  - type: button
+    slot: 12
+    item:
+      material: GLOW_INK_SAC
+      name: "<aqua>Buy & Apply Deepglow</aqua>"
+      lore:
+        - "<gray>Boosts RARE and EPIC chances for 10m.</gray>"
+        - "<yellow>$250</yellow>"
+    actions:
+      - type: buyApplyBait
+        bait: "deepglow"
+
+  - type: button
+    slot: 14
+    item:
+      material: PRISMARINE_CRYSTALS
+      name: "<blue>Buy & Apply Moonlit</blue>"
+      lore:
+        - "<gray>Boosts EPIC/LEGENDARY for 10m.</gray>"
+        - "<yellow>$400</yellow>"
+    actions:
+      - type: buyApplyBait
+        bait: "moonlit"

@@ -1,0 +1,16 @@
+baits:
+  - id: deepglow
+    name: "<aqua>Deepglow Bait</aqua>"
+    price: 250.0
+    durationSeconds: 600
+    rarityMultipliers:
+      RARE: 1.25
+      EPIC: 1.15
+
+  - id: moonlit
+    name: "<gradient:#66ccff:#3366ff>Moonlit Bait</gradient>"
+    price: 400.0
+    durationSeconds: 600
+    rarityMultipliers:
+      EPIC: 1.3
+      LEGENDARY: 1.15

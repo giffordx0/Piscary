@@ -1,0 +1,36 @@
+# Piscary Tournaments Configuration
+
+auto:
+  enabled: true
+  # How often to auto-start a tournament (minutes). Starts at 00, then every N minutes.
+  interval-minutes: 60
+
+defaults:
+  # Default duration for /ft start without explicit time (seconds)
+  duration-seconds: 900
+
+types:
+  enabled:
+    - MOST_FISH
+    - HIGHEST_VALUE
+    - RARITY_POINTS
+
+  # For RARITY_POINTS: how many points each rarity is worth
+  rarity_points:
+    points:
+      COMMON: 1
+      UNCOMMON: 2
+      RARE: 3
+      EPIC: 5
+      LEGENDARY: 8
+
+rewards:
+  1st:
+    money: 1000.0
+    entropy: 100
+  2nd:
+    money: 500.0
+    entropy: 50
+  3rd:
+    money: 250.0
+    entropy: 25

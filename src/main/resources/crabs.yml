@@ -1,0 +1,26 @@
+enabled: true
+
+# Number of recent catches to analyze for AFK behavior
+window-catches: 4
+
+# Player motion constraints considered "idle"
+max-move-distance: 0.6        # blocks across window
+max-rotate-deg: 10.0          # total yaw+pitch across window
+
+# How "robotic" the catch timing is allowed to be (std dev in seconds)
+max-interval-jitter: 1.2
+
+# Chance to spawn when a suspicious catch occurs
+chance-per-catch: 0.65
+
+spawn:
+  min: 1
+  max: 2
+
+reward:
+  entropy: 5
+
+crab:
+  health: 12.0
+  damage: 2.0
+  speed: 0.30

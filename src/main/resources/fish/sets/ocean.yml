@@ -1,0 +1,29 @@
+meta:
+  set: ocean
+  weight: 1.0
+fish:
+  - id: tropical_darter
+    name: "<aqua>Tropical Darter</aqua>"
+    material: COD
+    model: 10001
+    rarity: RARE
+    value: 75
+    lore: ["<gray>Vibrant and quick."]
+    conditions:
+      biomes: [WARM_OCEAN, LUKEWARM_OCEAN]
+      time: ANY
+      weather: CLEAR
+      y: { min: 30, max: 64 }
+
+  - id: abyssal_koi
+    name: "<gradient:#3a0ca3:#480ca8:#560bad>Abyssal Koi</gradient>"
+    material: SALMON
+    model: 10002
+    rarity: LEGENDARY
+    value: 450
+    lore: ["<gray>Whispers from the deep."]
+    conditions:
+      biomes: [DEEP_OCEAN, DEEP_COLD_OCEAN]
+      time: NIGHT
+      weather: ANY
+      y: { min: 5, max: 32 }

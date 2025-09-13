@@ -1,0 +1,54 @@
+name: Piscary
+version: '0.0.1'
+main: com.chunksmith.piscary.Piscary
+api-version: '1.21'
+authors: [ Chunksmith ]
+description: >
+  Piscary is a modern, feature-rich fishing plugin with custom fish, leveling,
+  sell shops, tournaments, quests, and fully customizable GUIs.
+website: https://chunksmith.com
+description: >
+  Piscary is a modern, feature-rich fishing plugin with custom fish, leveling,
+  sell shops, tournaments, quests, and fully customizable GUIs.
+
+commands:
+  fish:
+    description: Base Piscary command
+    usage: /fish
+    aliases: [piscary, pf]
+    permission: piscary.command
+  ft:
+    description: Tournament control
+    usage: /ft
+    permission: piscary.tournaments
+
+permissions:
+  piscary.command: { default: true }
+  piscary.menu: { default: true }
+  piscary.shop: { default: true }
+  piscary.scales: { default: true }
+  piscary.bag: { default: true }
+  piscary.gut: { default: true }
+  piscary.deliveries: { default: true }
+  piscary.augment: { default: true }
+  piscary.augments: { default: true }
+  piscary.entropy: { default: true }
+  piscary.boosters: { default: true }
+  piscary.bait: { default: true }
+  piscary.codex: { default: true }
+
+  piscary.admin: { default: op }
+  piscary.reload: { default: op }
+  piscary.removedelivery: { default: op }
+  piscary.give: { default: op }
+  piscary.addentropy: { default: op }
+  piscary.addxp: { default: op }
+  piscary.tournaments: { default: op }
+
+  piscary.totems.break.others: { default: op }
+  piscary.blockcodex: { default: false }
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - WorldGuard

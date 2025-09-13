@@ -1,0 +1,19 @@
+deliveries:
+  - id: coastal_intro
+    name: "<aqua>Coastal Sampler</aqua>"
+    weight: 1.0
+    objectives:
+      - { fish: "tropical_darter", amount: 3 }
+    rewards:
+      money: 300.0
+      entropy: 30
+
+  - id: abyssal_probe
+    name: "<gradient:#3a0ca3:#560bad>Abyssal Probe</gradient>"
+    weight: 0.7
+    objectives:
+      - { fish: "abyssal_koi", amount: 1 }
+      - { fish: "tropical_darter", amount: 2 }
+    rewards:
+      money: 800.0
+      entropy: 75
