@@ -49,7 +49,7 @@ public class ListComponent implements com.chunksmith.piscary.gui.components.Comp
                 if (ao instanceof List<?> al) {
                     for (Object a : al) if (a instanceof Map<?,?> am) acts.add(Action.fromMap(engine, (Map<?, ?>) am));
                 }
-                rows.add(new Row(slot, mat == null ? Material.PAPER : mat, name, lore, acts));
+                rows.add(new Row(Math.max(0, slot), mat == null ? Material.PAPER : mat, name, lore, acts));
             } catch (Exception ignored) {}
         }
     }
@@ -57,6 +57,10 @@ public class ListComponent implements com.chunksmith.piscary.gui.components.Comp
     @Override
     public void render(Inventory inv, Player viewer) {
         for (Row r : rows) {
+            if (r.slot < 0 || r.slot >= inv.getSize()) {
+                engine.plugin().getLogger().warning("[GUI] List row slot " + r.slot + " is out of bounds for inventory size " + inv.getSize());
+                continue;
+            }
             ItemStack it = new ItemStack(r.mat);
             ItemMeta im = it.getItemMeta();
             im.displayName(Text.mm(r.name));

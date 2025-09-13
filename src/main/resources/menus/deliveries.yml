@@ -1,46 +1,23 @@
 title: "@lang:menu.deliveries.title"
-rows: 4
+size: 27
 components:
   - type: delivery_status
+    slot: 11
+
+  - type: button
     slot: 13
-    material: BOOK
-    titleNone: "<gray>No active delivery</gray>"
-    loreNone:
-      - "<gray>Pick up a random delivery to start earning rewards.</gray>"
-    titleActive: "<green><deliveryName></green>"
-    loreActive:
-      - "<gray>Objectives:</gray>"
-      - "<objectives>"
-      - "<gray>Rewards:</gray>"
-      - "<gray>- Money:</gray> <yellow><money></yellow>"
-      - "<gray>- Entropy:</gray> <yellow><entropy></yellow>"
+    name: "Accept Random"
+    material: MAP
+    actions: [{ type: acceptRandomDelivery }]
 
   - type: button
-    slot: 28
-    item:
-      material: FEATHER
-      name: "<aqua>Accept Random Delivery</aqua>"
-      lore:
-        - "<gray>Start a new delivery with random objectives.</gray>"
-    actions:
-      - type: acceptDelivery
+    slot: 15
+    name: "Claim"
+    material: CHEST_MINECART
+    actions: [{ type: claimDelivery }]
 
   - type: button
-    slot: 31
-    item:
-      material: SUNFLOWER
-      name: "<yellow>Claim Rewards</yellow>"
-      lore:
-        - "<gray>Complete all objectives to claim.</gray>"
-    actions:
-      - type: claimGoods
-
-  - type: button
-    slot: 34
-    item:
-      material: BARRIER
-      name: "<red>Abandon Delivery</red>"
-      lore:
-        - "<gray>Abandon your current delivery.</gray>"
-    actions:
-      - type: abandonDelivery
+    slot: 22
+    name: "Abandon"
+    material: BARRIER
+    actions: [{ type: abandonDelivery }]

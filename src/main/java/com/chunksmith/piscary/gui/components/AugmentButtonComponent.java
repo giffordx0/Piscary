@@ -16,7 +16,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 public class AugmentButtonComponent implements com.chunksmith.piscary.gui.components.Component {
     private final GuiEngine engine;
@@ -29,7 +28,7 @@ public class AugmentButtonComponent implements com.chunksmith.piscary.gui.compon
 
     public AugmentButtonComponent(GuiEngine engine, ConfigurationSection sec) {
         this.engine = engine;
-        this.slot = sec.getInt("slot", 0);
+        this.slot = Math.max(0, sec.getInt("slot", 0));
         String matName = String.valueOf(sec.contains("item.material") ? sec.get("item.material") : "BOOK");
         this.material = Material.matchMaterial(matName.toUpperCase(Locale.ROOT));
         String raw = String.valueOf(sec.contains("augment") ? sec.get("augment") : "LUCK");
@@ -45,6 +44,11 @@ public class AugmentButtonComponent implements com.chunksmith.piscary.gui.compon
 
     @Override
     public void render(Inventory inv, Player viewer) {
+        if (slot < 0 || slot >= inv.getSize()) {
+            engine.plugin().getLogger().warning("[GUI] Augment button slot " + slot + " is out of bounds for inventory size " + inv.getSize());
+            return;
+        }
+
         ItemStack main = viewer.getInventory().getItemInMainHand();
         int level = engine.plugin().augments().getLevel(main, type);
         int max = engine.plugin().augments().maxLevel(type);
@@ -63,10 +67,12 @@ public class AugmentButtonComponent implements com.chunksmith.piscary.gui.compon
         List<net.kyori.adventure.text.Component> lore = new ArrayList<>();
         for (String line : lorePattern) {
             lore.add(Text.mm(
-                    line.replace("<augment>", type.name())
-                            .replace("<level>", String.valueOf(level))
-                            .replace("<max>", String.valueOf(max))
-                            .replace("<next_cost>", cost < 0 ? "MAX" : String.valueOf(cost))
+                    engine.resolveLangRefs(
+                            line.replace("<augment>", type.name())
+                                    .replace("<level>", String.valueOf(level))
+                                    .replace("<max>", String.valueOf(max))
+                                    .replace("<next_cost>", cost < 0 ? "MAX" : String.valueOf(cost))
+                    )
             ));
         }
         if (!lore.isEmpty()) im.lore(lore);

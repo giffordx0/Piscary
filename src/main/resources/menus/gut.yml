@@ -1,12 +1,9 @@
 title: "@lang:menu.gut.title"
-rows: 3
+size: 27
 components:
   - type: button
-    slot: 13
-    item:
-      material: SHEARS
-      name: "<yellow>Gut All Fish</yellow>"
-      lore:
-        - "<gray>Turn all Piscary fish in your inventory into entropy.</gray>"
-    actions:
-      - type: gutAll
+    slot: 12
+    name: "Gut All"
+    material: IRON_SWORD
+    lore: ["Convert all fish into entropy."]
+    actions: [{ type: gutAll }]

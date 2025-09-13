@@ -8,13 +8,13 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class ButtonComponent implements Component {
+public class ButtonComponent implements com.chunksmith.piscary.gui.components.Component {
     private final GuiEngine engine;
     private final int slot;
     private final ItemStack item;
@@ -22,37 +22,55 @@ public class ButtonComponent implements Component {
 
     public ButtonComponent(GuiEngine engine, ConfigurationSection sec) {
         this.engine = engine;
-        this.slot = sec.getInt("slot", 0);
+        this.slot = Math.max(0, sec.getInt("slot", 0));
 
+        // Read nested "item" section if present
         ConfigurationSection itemSec = sec.getConfigurationSection("item");
 
-        // Fallbacks if "item:" section is missing/malformed
-        Material mat = Material.BOOK;
-        String name = "Button";
+        String name = "<white>Button</white>";
         List<String> lore = new ArrayList<>();
-        int model = 0;
+        Material mat = Material.PAPER;
 
         if (itemSec != null) {
-            Material m = Material.matchMaterial(itemSec.getString("material", "BOOK"));
+            String matName = itemSec.getString("material", "PAPER");
+            Material m = Material.matchMaterial(String.valueOf(matName).toUpperCase(Locale.ROOT));
             if (m != null) mat = m;
-            name = engine.resolveLangRefs(itemSec.getString("name", name));
+            name = itemSec.getString("name", name);
             lore = itemSec.getStringList("lore");
-            model = itemSec.getInt("model", 0);
         }
 
-        this.item = new ItemStack(mat);
-        ItemMeta im = item.getItemMeta();
-        im.displayName(Text.mm(name));
-        if (!lore.isEmpty()) im.lore(lore.stream().map(engine::resolveLangRefs).map(Text::mm).toList());
-        if (model > 0) im.setCustomModelData(model);
-        item.setItemMeta(im);
+        // Root-level fallbacks for older/other schemas
+        if (sec.isString("material")) {
+            Material m2 = Material.matchMaterial(sec.getString("material", "PAPER").toUpperCase(Locale.ROOT));
+            if (m2 != null) mat = m2;
+        }
+        if (sec.isString("name")) name = sec.getString("name", name);
+        if (sec.isList("lore")) lore = sec.getStringList("lore");
 
-        var acts = sec.getMapList("actions");
-        for (var a : acts) actions.add(Action.fromMap(engine, a));
+        // Resolve langs
+        name = engine.resolveLangRefs(name);
+        List<net.kyori.adventure.text.Component> ad = new ArrayList<>();
+        for (String line : lore) ad.add(Text.mm(engine.resolveLangRefs(line)));
+
+        ItemStack it = new ItemStack(mat);
+        ItemMeta im = it.getItemMeta();
+        im.displayName(Text.mm(name));
+        if (!ad.isEmpty()) im.lore(ad);
+        im.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
+        it.setItemMeta(im);
+        this.item = it;
+
+        for (Map<?, ?> m : sec.getMapList("actions")) {
+            actions.add(Action.fromMap(engine, m));
+        }
     }
 
     @Override
     public void render(Inventory inv, Player viewer) {
+        if (slot < 0 || slot >= inv.getSize()) {
+            engine.plugin().getLogger().warning("[GUI] Button slot " + slot + " is out of bounds for inventory size " + inv.getSize());
+            return;
+        }
         inv.setItem(slot, item);
     }
 

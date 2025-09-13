@@ -1,38 +1,18 @@
 title: "@lang:menu.augments.title"
-rows: 3
+size: 27
 components:
-  - type: button
-    slot: 11
-    item:
-      material: ENCHANTED_BOOK
-      name: "<aqua>Luck</aqua>"
-      lore:
-        - "<gray>Gain extra catch rolls and pick the best rarity.</gray>"
-        - "<gray>Max level and costs in config.</gray>"
-    actions:
-      - type: openMenu
-        menu: "augment"
-
-  - type: button
-    slot: 13
-    item:
-      material: FISHING_ROD
-      name: "<aqua>Double Hook</aqua>"
-      lore:
-        - "<gray>Chance to pull an extra fish with each catch.</gray>"
-        - "<gray>Max level and costs in config.</gray>"
-    actions:
-      - type: openMenu
-        menu: "augment"
-
-  - type: button
-    slot: 15
-    item:
-      material: AMETHYST_SHARD
-      name: "<aqua>Entropy</aqua>"
-      lore:
-        - "<gray>Increases entropy gained when gutting fish.</gray>"
-        - "<gray>Max level and costs in config.</gray>"
-    actions:
-      - type: openMenu
-        menu: "augment"
+  - type: list
+    start: 10
+    rows:
+      - slot: 10
+        material: BOOK
+        name: "Luck"
+        lore: ["Increases rare fish chance."]
+      - slot: 11
+        material: BOOK
+        name: "Entropy"
+        lore: ["More entropy from gutting."]
+      - slot: 12
+        material: BOOK
+        name: "Treasure"
+        lore: ["Chance to pull treasure items."]

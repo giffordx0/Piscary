@@ -23,7 +23,7 @@ public class BagStatusComponent implements com.chunksmith.piscary.gui.components
 
     public BagStatusComponent(GuiEngine engine, ConfigurationSection sec) {
         this.engine = engine;
-        this.slot = sec.getInt("slot", 13);
+        this.slot = Math.max(0, sec.getInt("slot", 13));
         String mat = String.valueOf(sec.contains("material") ? sec.get("material") : "BUNDLE");
         this.material = Material.matchMaterial(mat.toUpperCase());
         this.namePattern = engine.resolveLangRefs(String.valueOf(sec.contains("name") ? sec.get("name") : "<aqua>Fish Bag</aqua>"));
@@ -32,6 +32,11 @@ public class BagStatusComponent implements com.chunksmith.piscary.gui.components
 
     @Override
     public void render(Inventory inv, Player viewer) {
+        if (slot < 0 || slot >= inv.getSize()) {
+            engine.plugin().getLogger().warning("[GUI] Bag status slot " + slot + " is out of bounds for inventory size " + inv.getSize());
+            return;
+        }
+
         int species = engine.plugin().bag().getSpeciesCount(viewer);
         int total = engine.plugin().bag().getTotalCount(viewer);
 
@@ -41,8 +46,9 @@ public class BagStatusComponent implements com.chunksmith.piscary.gui.components
 
         List<net.kyori.adventure.text.Component> lore = new ArrayList<>();
         for (String line : lorePattern) {
-            String s = line.replace("<species>", String.valueOf(species))
-                    .replace("<total>", String.valueOf(total));
+            String s = engine.resolveLangRefs(line
+                    .replace("<species>", String.valueOf(species))
+                    .replace("<total>", String.valueOf(total)));
             lore.add(Text.mm(s));
         }
         im.lore(lore);

@@ -9,8 +9,6 @@ menu:
     title: "<aqua>Fish Bag</aqua>"
   gut:
     title: "<aqua>Gutting</aqua>"
-  scales:
-    title: "<aqua>Scales</aqua>"
   bait:
     title: "<aqua>Bait Shop</aqua>"
   codex:
@@ -23,3 +21,5 @@ menu:
     title: "<aqua>Augments</aqua>"
   totems:
     title: "<aqua>Totems</aqua>"
+  scales:
+    title: "<aqua>Scales</aqua>"

@@ -1,15 +1,72 @@
 title: "@lang:menu.main.title"
-rows: 3
+size: 27
 components:
   - type: button
+    slot: 10
+    name: "@lang:menu.bag.title"
+    material: BUNDLE
+    lore: ["Open your fish bag."]
+    actions: [{ type: openMenu, menu: "bag" }]
+
+  - type: button
     slot: 11
-    item: { material: COD, name: "Shop", lore: ["<gray>Open fish shop"] }
-    actions: [{ type: openMenu, menu: "shop" }]
+    name: "@lang:menu.gut.title"
+    material: IRON_SWORD
+    lore: ["Gut fish for entropy."]
+    actions: [{ type: openMenu, menu: "gut" }]
+
+  - type: button
+    slot: 12
+    name: "@lang:menu.scales.title"
+    material: PAPER
+    lore: ["Gamble fish at the scales."]
+    actions: [{ type: openMenu, menu: "scales" }]
+
   - type: button
     slot: 13
-    item: { material: BARREL, name: "Bag", lore: ["<gray>View your fish"] }
-    actions: [{ type: openMenu, menu: "bag" }]
+    name: "@lang:menu.shop.title"
+    material: EMERALD
+    lore: ["Sell fish for money."]
+    actions: [{ type: openMenu, menu: "shop" }]
+
+  - type: button
+    slot: 14
+    name: "@lang:menu.bait.title"
+    material: WHEAT_SEEDS
+    lore: ["Buy & apply bait."]
+    actions: [{ type: openMenu, menu: "bait" }]
+
   - type: button
     slot: 15
-    item: { material: IRON_SWORD, name: "Gutting", lore: ["<gray>Convert to entropy"] }
-    actions: [{ type: openMenu, menu: "gut" }]
+    name: "@lang:menu.deliveries.title"
+    material: MAP
+    lore: ["Take on deliveries."]
+    actions: [{ type: openMenu, menu: "deliveries" }]
+
+  - type: button
+    slot: 16
+    name: "@lang:menu.augment.title"
+    material: ENCHANTING_TABLE
+    lore: ["Craft & upgrade augments."]
+    actions: [{ type: openMenu, menu: "augment" }]
+
+  - type: button
+    slot: 19
+    name: "@lang:menu.augments.title"
+    material: BOOKSHELF
+    lore: ["View all augments."]
+    actions: [{ type: openMenu, menu: "augments" }]
+
+  - type: button
+    slot: 20
+    name: "@lang:menu.totems.title"
+    material: BEACON
+    lore: ["Buy & place totems."]
+    actions: [{ type: openMenu, menu: "totems" }]
+
+  - type: button
+    slot: 21
+    name: "@lang:menu.codex.title"
+    material: KNOWLEDGE_BOOK
+    lore: ["Fish encyclopedia."]
+    actions: [{ type: openMenu, menu: "codex" }]
