@@ -95,8 +95,30 @@ public class MenuView {
     public void handle(InventoryClickEvent e) {
         if (!(e.getWhoClicked() instanceof Player p)) return;
         if (!e.getView().title().equals(Text.mm(titleMini))) return;
+
+        // Cancel clicks in the top inventory by default so players can't
+        // grab or place items in empty slots. Components may still re-enable
+        // interaction for their own slots if needed.
+        boolean top = e.getRawSlot() < e.getView().getTopInventory().getSize();
+        if (top) {
+            e.setCancelled(true);
+        } else {
+            // Also block shift clicks or hotbar swaps originating from the
+            // player's inventory that would move items into the menu.
+            switch (e.getAction()) {
+                case MOVE_TO_OTHER_INVENTORY, HOTBAR_SWAP, HOTBAR_MOVE_AND_READD,
+                        SWAP_WITH_CURSOR, COLLECT_TO_CURSOR -> e.setCancelled(true);
+                default -> {}
+            }
+        }
+
         for (Component c : components) c.click(e);
-        for (Component c : components) c.render(e.getView().getTopInventory(), p);
+
+        // Re-render the menu after handling the click if the click was in the
+        // menu itself. This keeps component visuals in sync after actions.
+        if (top) {
+            for (Component c : components) c.render(e.getView().getTopInventory(), p);
+        }
     }
 
     public List<Component> components() { return components; }
